@@ -2,15 +2,26 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @auction_find.title %></div>
   <div class="panel-body">
-    Description:  <%= @auction_find.description %><br><br><br><br>
-    <h2>Current Price </h2>
+    <b>Description:</b>  <%= @auction_find.description %><br><br><br><br>
+    <b>Number of Bids:</b> <%= @auction_find.bids.count %>
+    <h2>Current Price
+      <% if @auction_find.bids.empty? %>
+      BIDS ARE empty
+      <% else %>
+      $<%= @last_bid.price %>
+      <% end %>
+    </h2>
     <form action="/bids" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
         Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
     </form><br>
     Bid History <br>
-    <% @auction_history.each do |history| %>
-    User ID: <%= history.user_id %> bidded $<%=history.price %> on <%= history.created_at %> <br><hr>
+    <% if @auction_history.empty? %>
+    No Bids yet...
+      <% else %>
+      <% @auction_history.each do |history| %>
+      User ID: <%= history.user_id %> bidded $<%=history.price %> on <%= history.created_at %> <br><hr>
+      <% end %>
     <% end %>
 </div>
