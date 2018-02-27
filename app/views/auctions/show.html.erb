@@ -1,2 +1,14 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
+<h1>Details: </h1>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @auction_find.title %></div>
+  <div class="panel-body">
+    Description:  <%= @auction_find.description %><br><br><br><br>
+    <h2>Current Price </h2>
+    <form action="/bids" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
+        Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
+    </form>
+    Bid History
+
+</div>

@@ -7,7 +7,7 @@ class Address < ActiveRecord::Base
   validates :street, :city, :zip_code, presence: true
   validates :state, length: { maximum: 2 }
 
-  before_save: upcase_state
+  before_save :upcase_state
 
   private
   def upcase_state

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  root 'users#home'  
+  get 'bids/create'
+
+  get 'bids/destroy'
+
+  root 'users#home'
   resources :users, only: [:new, :create, :show]
   resource :sessions, only: [:create, :destroy]
-  
+  resources :auctions, only: [:index, :new, :destroy, :create, :show]
+  resources :bids, only: [:create]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
