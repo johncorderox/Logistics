@@ -3035,7 +3035,16 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
 }
-
+#sign_up_header{
+  background: url(header-su.jpg) no-repeat center center;
+  width: 100%;
+  padding: 20px 10px 60px 10px;
+  overflow: hidden;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
 .header-info {
   position: absolute;
   bottom: 0;

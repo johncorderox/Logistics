@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @u = User.new(new_user)
     if @u.save
       session[:user_id] = @u.id
-      redirect_to "/dashboard"
+      redirect_to "/auctions"
     else
       flash[:errors] = @u.errors.full_messages
       redirect_to :back

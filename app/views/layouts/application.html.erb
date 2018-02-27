@@ -5,20 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if flash[:errors] %>
-  <% flash[:errors].each do |e| %>
-  <p>
-    <%= e %>
-  </p>
-  <% end %>
-  <% end %>
 
-  <% if current_user %>
-  <a href="/sessions" data-method="delete" value="Log Out">Log Out</a>
-  <% end %>
 
 <%= yield %>
 

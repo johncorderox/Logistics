@@ -1,9 +1,114 @@
-<h1>Register</h1>
-<form action="/users" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  First Name: <input type="text" name="user[first_name]">
-  Last Name: <input type="text" name="user[last_name]"><br>
-  Email: <input type="email" name="user[email]" value=""><br />
-  Password: <input type="password" name="user[password]" value=""><br />
-  <button type="Submit" name="button">Register</button>
-</form>
+<div id="sign_up_header">
+  <div class="container">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+          <div class="panel-heading">
+            <div class="panel-title">Sign In</div>
+            <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+            </div>     
+            <div style="padding-top:30px" class="panel-body" >
+              <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                <form id="loginform" class="form-horizontal" role="form" action="/sessions" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">        
+                    <div style="margin-bottom: 25px" class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input id="login-email" type="text" class="form-control" name="email" value="" placeholder="email">                           
+                    </div>            
+                    <div style="margin-bottom: 25px" class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                      <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                    </div>
+                    <div class="input-group">
+                      <div class="checkbox">
+                        <label>
+                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                        </label>
+                      </div>
+                    </div>
+                    <div style="margin-top:10px" class="form-group">
+                    <!-- Button -->
+                    <div class="col-sm-12 controls">
+                      <input type="submit" value="LOGIN">
+                    </div>
+                        </div>  
+                </form>     
+
+
+
+                        </div>                     
+                    </div>  
+        </div>
+<% if flash[:errors] %>
+  <div class="d-inline-block mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="col-sm">
+      <% flash[:errors].each do |e| %>
+        <div class="alert alert-danger">
+          <strong>
+            <%= e %>
+          </strong>
+        </div>
+        <% end %>
+    </div>
+  </div>
+<% end %>
+<div id="signupbox" style="display:inline-block; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Sign Up</div>
+        </div>  
+        <div class="panel-body" >
+         
+            <form id="signupform" class="form-horizontal" role="form" action="/users" method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <div class="form-group">
+                <label for="user[email]" class="col-md-3 control-label">Email</label>
+            <div class="col-md-9">
+                <input type="email" class="form-control" name="user[email]" placeholder="Email Address">
+            </div>
+        </div>   
+          <div class="form-group">
+            <label for="user[first_name]" class="col-md-3 control-label">First Name</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="user[first_name]" placeholder="First Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user[last_name]" class="col-md-3 control-label">Last Name</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[last_name]" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="user[password]" class="col-md-3 control-label">Password</label>
+            <div class="col-md-9">
+                <input type="password" class="form-control" name="user[password]" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="user[password_confirmation]" class="col-md-3 control-label">Password Confirmation</label>
+              <div class="col-md-9">
+                  <input type="password" class="form-control" name="user[password_confirmation]" placeholder=" Confirm Password">
+              </div>
+          </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="col-sm-12 controls">
+                          <input type="submit" value="SIGN UP">
+                        </div>
+                    </div>
+                </div>
+                                              
+            </form>
+          </div>
+    </div>
+
+               
+               
+                
+         </div> 
+    </div>
+</div>
+

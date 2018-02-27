@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   @user = User.find_by(email: params[:email])
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect_to "dashboard"
+    redirect_to "/auctions"
   else
     flash[:errors] = ["Invalid Combination"]
     redirect_to :back
