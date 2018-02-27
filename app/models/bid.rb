@@ -4,9 +4,6 @@ class Bid < ActiveRecord::Base
 
   validates :price, presence: true, numericality: true
 
-  before_create :check_bid
 
-  private
-    def check_bid
-    end
+
 end
