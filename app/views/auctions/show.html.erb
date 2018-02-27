@@ -8,7 +8,9 @@
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
         Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
-    </form>
-    Bid History
-
+    </form><br>
+    Bid History <br>
+    <% @auction_history.each do |history| %>
+    User ID: <%= history.user_id %> bidded $<%=history.price %> on <%= history.created_at %> <br><hr>
+    <% end %>
 </div>

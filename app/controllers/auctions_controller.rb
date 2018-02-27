@@ -19,7 +19,7 @@ class AuctionsController < ApplicationController
   end
   def show
     @auction_find = Auction.find(params[:id])
-    @auction_history = Auction.find(params[:id])
+    @auction_history = Auction.find(params[:id]).bids
   end
 
   def edit
