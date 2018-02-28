@@ -31,8 +31,7 @@
         <div class="row header-info">
           <div class="col-sm-10 col-sm-offset-1 text-center">
             <br />
-            <p class="lead wow fadeIn" data-wow-delay="0.5s">Lorem ipsum dolor sit amet, consectetur adipis. <br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sit dol mi arlna.</p>
+            <p class="lead wow fadeIn" data-wow-delay="0.5s">Bringing together companies and delivery contractors on one platform</p>
             <br />
               
             <div class="row">
@@ -42,7 +41,7 @@
                     <a href="#be-the-first" class="btn btn-secondary btn-lg scroll">Learn More</a>
                   </div>
                   <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
-                    <a href="#invite" class="btn btn-primary btn-lg scroll">Request Invite</a>
+                    <a href="#information" class="btn btn-primary btn-lg scroll">Request Information</a>
                   </div>
                 </div><!--End Button Row-->  
               </div>
@@ -87,8 +86,8 @@
 			    </div>
 			    <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
 				    <hr  class="line yellow">
-				    <h3>App Feature One Here</h3>
-				    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut est facilisis, eu elementum mi volutpat. Pellentesque ac tristique nisi.</p>
+				    <h3>Platform</h3>
+				    <p>You can view all pedning auctions and use different search parameters</p>
 			    </div>
 		    </div>
 	    </div>
@@ -152,23 +151,24 @@
     </section>
     
     
-    <section id="invite" class="pad-lg light-gray-bg">
+    <section id="information" class="pad-lg light-gray-bg">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text-center">
             <i class="fa fa-envelope-o margin-40"></i>
-            <h2 class="black">Get the invite</h2>
+            <h2 class="black">Sign up for our newsletter</h2>
             <br />
-            <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
+            <p class="black">Get updates on new features and upcoming changes.</p>
             <br />
             
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <form role="form">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                   <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
                   </div>
-                  <button type="submit" class="btn btn-primary btn-lg">Request Invite</button>
+                  <button type="submit" class="btn btn-primary btn-lg">Sign Up for Newsletter</button>
                 </form>
               </div>
             </div><!--End Form row-->
