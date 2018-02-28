@@ -34,7 +34,6 @@
   Title <input type="text" class="form-control" name="auction[title]" autofocus="true"><br>
   Description <textarea class="form-control" name=auction[description]></textarea>
   Minimum Price: <input type="number" name="auction[minimum_price]" class="form-control" step="any">
-  Auction End: <input type="datetime-local" name="auction[auction_end]" class="form-control">
   <input type="hidden"  name="auction[address_id]" value="<%= @user.address.id %>">
   <input type="hidden" name="auction[user_id]" value="<%= @user.id %>">
   <button type="submit" class="btn btn-info">Create Auction</button>
