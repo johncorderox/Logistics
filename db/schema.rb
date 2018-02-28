@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20180228031721) do
 
+
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
     t.string   "city"
@@ -70,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180228031721) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "occupation"
+    t.string   "company"
     t.string   "phone_number"
     t.integer  "level"
     t.integer  "address_id"

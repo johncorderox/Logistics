@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(session[:user_id])
+    if @user.address_id
+      @address = Address.find(@user.address_id)
+    end
   end
 
   def update

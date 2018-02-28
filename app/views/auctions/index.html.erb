@@ -3,7 +3,7 @@
   <% if @user.address_id != nil %>
     <a href="/auctions/new">Add New Auction</a>
   <% else %>
-    <b>You have not added an address, you can add one <a href="">here</a></b>
+    <b>You have not added an address, you can add one <a href="/users/<%= @user.id %>/edit">here</a></b>
   <% end %>
 <% end %>
 <form>
