@@ -1,4 +1,4 @@
-<h1>Details: </h1>
+<%= link_to 'Back', '/auctions' %>
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @auction_find.title %></div>
   <div class="panel-body">
@@ -6,7 +6,7 @@
     <b>Number of Bids:</b> <%= @auction_find.bids.count %>
     <h2>Current Price
       <% if @auction_find.bids.empty? %>
-      BIDS ARE empty
+        <%= @auction_find.minimum_price %>
       <% else %>
       $<%= @last_bid.price %>
       <% end %>
@@ -15,13 +15,16 @@
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
         Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
-    </form><br>
-    Bid History <br>
-    <% if @auction_history.empty? %>
-    No Bids yet...
-      <% else %>
-      <% @auction_history.each do |history| %>
-      User ID: <%= history.user_id %> bidded $<%=history.price %> on <%= history.created_at %> <br><hr>
+    </form><br><br>
+    <% if @user.level > 1 %>
+      Bid History <br><br><br>
+      <% if @auction_history.empty? %>
+      No Bids yet...
+        <% else %>
+        <% @auction_history.each do |history| %>
+        User ID: <%= history.user_id %> bidded $<%=history.price %> on <%= history.created_at %> <br><hr>
+        <% end %>
       <% end %>
-    <% end %>
+      <% else %>
+      <%end %>
 </div>

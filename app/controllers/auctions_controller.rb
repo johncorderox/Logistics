@@ -1,7 +1,7 @@
 class AuctionsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
-    @auctions = Auction.all.order("created_at ASC").limit(10)
+    @auctions = Auction.all.order("created_at ASC").limit(10).where(status: "New")
   end
 
   def new
@@ -21,10 +21,10 @@ class AuctionsController < ApplicationController
     @auction_find = Auction.find(params[:id])
     @auction_history = Auction.find(params[:id]).bids.order("created_at DESC").limit(10)
     @last_bid = Auction.find(params[:id]).bids.order("created_at DESC").limit(1).select(:price).first
+    @user = User.find(session[:user_id])
   end
   def edit
   end
-
   def update
   end
 
@@ -35,5 +35,8 @@ class AuctionsController < ApplicationController
   private
     def new_auction
       params.require(:auction).permit(:title, :description, :minimum_price, :auction_end, :address_id, :user_id)
+    end
+    def search
+      params.require(:search).permit(:search)
     end
 end
