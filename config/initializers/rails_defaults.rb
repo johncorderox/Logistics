@@ -1,2 +1,2 @@
-Date::DATE_FORMATS[:default] = '%b/%d/%Y'
-Time::DATE_FORMATS[:default]= '%b %d %Y %I:%M:%p'
+Date::DATE_FORMATS[:default] = '%Y-%m-%d'
+Time::DATE_FORMATS[:default]= '%b %d %Y %H:%M:%S'

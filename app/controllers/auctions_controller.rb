@@ -34,9 +34,6 @@ class AuctionsController < ApplicationController
   end
   private
     def new_auction
-      params.require(:auction).permit(:title, :description, :minimum_price, :auction_end, :address_id, :user_id)
-    end
-    def search
-      params.require(:search).permit(:search)
+      params.require(:auction).permit(:title, :description, :minimum_price, :address_id, :user_id)
     end
 end
