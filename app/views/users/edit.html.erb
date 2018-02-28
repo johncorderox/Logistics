@@ -1,2 +1,103 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+    <h1>Edit Profile</h1>
+  	<hr>
+	<div class="row">
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <% if @user.level >= 1 %>
+          <% if @user.address_id != nil %>
+            <a href="/auctions/new"> Add New Auction </a>
+          <% else %>
+            <div class="alert alert-info alert-dismissable">
+              <a class="panel-close close" data-dismiss="alert">×</a> 
+              <i class="fa fa-map-marker"></i>
+               You have not yet added an <strong>address</strong>. Please enter one below.
+        </div>
+          <% end %>
+        <% end %>
+        
+        <h3>Personal info</h3>
+        
+        <form class="form-horizontal" role="form" action="/users/<%= @user.id %>" method="post" >
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input name="_method" type="hidden" value="patch" />
+          <div class="form-group">
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="<%= @user.first_name %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="<%= @user.last_name %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Company:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="<%= @user.company %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="<%= @user.email %>">
+            </div>
+          </div>
+          <% if @user.level >= 1 %>
+          <% if @user.address_id != nil %>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Address:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= @address.street %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">City:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= @address.city %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">State:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="<%= @address.state %>">
+            </div>
+          </div>
+          <% else %>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Address:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">City:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">State:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="">
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input class="btn btn-primary" type="submit" value="SAVE CHANGES">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
