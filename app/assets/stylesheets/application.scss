@@ -15,3 +15,11 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+#wrapper{
+  background: url(background.png);
+  min-height: 800px;
+  padding: 10px;
+}
+.diblock{
+  display: inline-block;
+}

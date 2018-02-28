@@ -1,14 +1,46 @@
+<div id="wrapper">
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= image_tag("logo.svg") %>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="/auctions">Home</a>
+      </li>
+        <% if @user.level >= 1 %>
+          <% if @user.address_id != nil %>
+            <li>
+              <a href="/auctions/new">Add New Auction</a>
+            </li>
+          <% end %>
+        <% end %>
+      <li>
+        <a href="/sessions" data-method="delete">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+
 <div class="container">
     <h1>Edit Profile</h1>
   	<hr>
 	<div class="row">
 
       <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+      <div class="col-md-12 personal-info diblock">
         <% if @user.level >= 1 %>
-          <% if @user.address_id != nil %>
-            <a href="/auctions/new"> Add New Auction </a>
-          <% else %>
+          <% if @user.address_id == nil %>
             <div class="alert alert-info alert-dismissable">
               <a class="panel-close close" data-dismiss="alert">×</a> 
               <i class="fa fa-map-marker"></i>
@@ -16,88 +48,118 @@
         </div>
           <% end %>
         <% end %>
-        
-        <h3>Personal info</h3>
-        
-        <form class="form-horizontal" role="form" action="/users/<%= @user.id %>" method="post" >
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input name="_method" type="hidden" value="patch" />
-          <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="<%= @user.first_name %>">
+        <div class="diblock col-md-8">
+          <form class="form-horizontal" role="form" action="/users/<%= @user.id %>" method="post" >
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input name="_method" type="hidden" value="patch" />
+            <div class="form-group">
+              <label class="col-md-3 control-label">First name:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="user[first_name]" value="<%= @user.first_name %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="<%= @user.last_name %>">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Last name:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="user[last_name]" value="<%= @user.last_name %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="<%= @user.company %>">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Company:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="user[company]" value="<%= @user.company %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="<%= @user.email %>">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Email:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="user[email]" value="<%= @user.email %>">
+              </div>
             </div>
-          </div>
-          <% if @user.level >= 1 %>
-          <% if @user.address_id != nil %>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Address:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="<%= @address.street %>">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Phone Number:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="user[phone_number]" value="<%= @user.phone_number %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">City:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="<%= @address.city %>">
+            <% if @user.level >= 1 %>
+            <% if @user.address_id != nil %>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Address:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[street]" value="<%= @address.street %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">State:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="<%= @address.state %>">
+            <div class="form-group">
+              <label class="col-md-3 control-label">City:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[city]" value="<%= @address.city %>">
+              </div>
             </div>
-          </div>
-          <% else %>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Address:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="">
+            <div class="form-group">
+              <label class="col-md-3 control-label">State:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[state]" value="<%= @address.state %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">City:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="">
+            <div class="form-group">
+              <label class="col-md-3 control-label">Zip Code:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[zip_code]" value="<%= @address.zip_code %>">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">State:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="">
+            <% else %>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Address:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[street]" value="">
+              </div>
             </div>
-          </div>
-          <% end %>
-          <% end %>
-
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input class="btn btn-primary" type="submit" value="SAVE CHANGES">
+            <div class="form-group">
+              <label class="col-md-3 control-label">City:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[city]" value="">
+              </div>
             </div>
-          </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">State:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="text" name="address[state]" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Zip Code:</label>
+              <div class="col-md-6">
+                <input class="form-control" type="number" name="address[zip_code]" value="">
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-6">
+                <input class="btn btn-primary" type="submit" value="SAVE CHANGES">
+              </div>
+            </div>
         </form>
+      </div>
+      <% if flash[:errors] %>
+        <div class="diblock mainbox col-md-4 col-sm-4">
+          <div class="col-sm">
+            <% flash[:errors].each do |e| %>
+              <div class="alert alert-danger">
+                <strong>
+                  <%= e %>
+                </strong>
+              </div>
+              <% end %>
+          </div>
+        </div>
+        <% end %>
       </div>
   </div>
 </div>
 <hr>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
