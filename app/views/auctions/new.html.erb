@@ -24,17 +24,42 @@
 <br>
 <br>
 <br>
-<br /><%= link_to 'Back', '/auctions' %>
-<h1>Create New Auction</h1>
-<p>Address Information</p>
-<%= @user.address.street %> <%= @user.address.city %>, <%= @user.address.state %> <%= @user.address.zip_code %><br>
-
-<form action="/auctions" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  Title <input type="text" class="form-control" name="auction[title]" autofocus="true"><br>
-  Description <textarea class="form-control" name=auction[description]></textarea>
-  Minimum Price: <input type="number" name="auction[minimum_price]" class="form-control" step="any">
-  <input type="hidden"  name="auction[address_id]" value="<%= @user.address.id %>">
-  <input type="hidden" name="auction[user_id]" value="<%= @user.id %>">
-  <button type="submit" class="btn btn-info">Create Auction</button>
-</form>
+<div class="row">
+  <div class="col-sm-8 diblock">
+    <h1>Create New Auction</h1>
+    <p>Address Information: </p>
+    <%= @user.address.street %>
+      <%= @user.address.city %>,
+        <%= @user.address.state %>
+          <%= @user.address.zip_code %>
+            <br>
+            <br>
+            <form action="/auctions" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> Title:
+              <input type="text" class="form-control" name="auction[title]" autofocus="true">
+              <br> Description :
+              <textarea class="form-control" name=auction[description]></textarea>
+              <br> Minimum Price:
+              <input type="number" name="auction[minimum_price]" class="form-control" step="any">
+              <input type="hidden" name="auction[address_id]" value="<%= @user.address.id %>">
+              <input type="hidden" name="auction[user_id]" value="<%= @user.id %>">
+              <br>
+              <button type="submit" class="btn btn-info">Create Auction</button>
+            </form>
+  </div>
+  <div class="col-sm-4 diblock">
+  <% if flash[:errors] %>
+    <div class="diblock">
+      <div class="col-sm">
+        <% flash[:errors].each do |e| %>
+          <div class="alert alert-danger">
+            <strong>
+              <%= e %>
+            </strong>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

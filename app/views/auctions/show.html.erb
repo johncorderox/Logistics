@@ -49,7 +49,9 @@
     <form action="/bids" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
-        Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
+        Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px">
+        <br>
+        <button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
     </form><br><br>
     <% if @user.level > 1 %>
       Bid History <br><br><br>
