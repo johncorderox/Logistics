@@ -27,7 +27,6 @@ class AuctionsController < ApplicationController
     geocodio = Geocodio::Client.new('07980857e0feeaa078509a098a8078e60509d99')
     results = geocodio.geocode(['175 E Olive Ave, Burbank, CA 91502'])
     @results = results.best
-    @results
   end
   def edit
   end
