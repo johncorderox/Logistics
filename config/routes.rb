@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
   root 'users#home'
   resources :users, only: [:new, :create, :show, :edit, :update]
   resource :sessions, only: [:create, :destroy]
   resources :auctions, only: [:index, :new, :destroy, :create, :show]
   resources :bids, only: [:create, :destroy]
-  resources :addresses, only: [:create, :update]
   resources :dashboards, only: [:index]
+  resources :addresses, only: [:create, :update]
 
   post "users/subscribe" => "users#subscribe"
 

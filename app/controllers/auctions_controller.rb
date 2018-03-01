@@ -25,6 +25,11 @@ class AuctionsController < ApplicationController
     @pastauctions = Auction.where.not(status:new)
     @my_auctions = Auction.where(user: current_user )
     @all_auctions = Auction.all
+
+    # test
+    geocodio = Geocodio::Client.new('07980857e0feeaa078509a098a8078e60509d99')
+    results = geocodio.geocode(['175 E Olive Ave, Burbank, CA 91502'])
+    @results = results.best
   end
   def edit
   end

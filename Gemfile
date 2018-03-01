@@ -11,6 +11,9 @@ gem 'sass-rails', '~> 5.0'
 gem  'time_diff'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# google maps gem
+gem 'gmaps4rails'
+gem 'geocodio'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -47,6 +50,4 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'mailchimp-api', require: 'mailchimp'
-  gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
-  
 end

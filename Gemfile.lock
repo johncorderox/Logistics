@@ -71,8 +71,11 @@ GEM
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
+    geocodio (3.0.0)
+      json
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     hirb (0.7.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -184,7 +187,8 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
-  gibbon!
+  geocodio
+  gmaps4rails
   hirb
   jbuilder (~> 2.0)
   jquery-rails
