@@ -35,66 +35,75 @@
 <br>
 <br>
 <div id="wrapper">
-<h1>Auctions (<%= @auctions.count %>)</h1>
-<br>
-<% if @user.level >= 1 %>
-  <% if @user.address_id == nil %>
-    <b>You have not added an address, you can add one <a href="/users/<%= @user.id %>/edit">here</a></b>
-  <% end %>
-<% end %>
-<br>
-<br>
-<br>
-<form>
-  <div class="input-group">
-    <form class="" action="index.html" method="post">
-      <input type="text" class="form-control" name="search[search]" placeholder="Search Auctions" autofocus="true">
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">
-          <i class="glyphicon glyphicon-search"></i>
-        </button>
-      </div>
-    </form>
-  </div>
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <td>Title</td>
-      <td>Minimum Price</td>
-      <td>Address</td>
-      <td>End Date</td>
-      <% if @user.level == 3 %>
-      <td>Created By</td>
-      <td>Actions</td>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @auctions.each do |auction| %>
-    <tr>
-      <td><%= auction.title %></td>
-      <td>$ <%= auction.minimum_price %></td>
-      <td><%= auction.address.street %> <%= auction.address.city %>, <%= auction.address.state %></td>
-      <td><%= Time.diff(auction.auction_end + 7.days, Time.now ,'%d %hh %mm %ss')[:diff]%>
-      </td>
-          <% if @user.level == 3 %>
-        <td><%= auction.user.first_name %> <%= auction.user.last_name %></td>
+
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+      <h3>Welcome, <%= @user.first_name %></h3>
+      <h1>Active Auctions: (<%= @auctions.count %>)</h1>
+      <br>
+      <% if @user.level >= 1 %>
+        <% if @user.address_id == nil %>
+          <b>You have not added an address, you can add one <a href="/users/<%= @user.id %>/edit">here</a></b>
         <% end %>
-      <td>
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Actions (<%= auction.id %>)
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/auctions/<%= auction.id %>">Open</a></li>
-              <% if @user.level == 3 %>
-              <li><a href="/auctions/<%= auction.id %>" data-method="delete">Delete</a></li>
-              <% end %>
-            </ul>
-          </div>
-      </td>
       <% end %>
-    </tr>
-  </tbody>
-</table>
-</form>
+      <br>
+      <br>
+      <form>
+        <div class="input-group">
+          <form class="" action="index.html" method="post">
+            <input type="text" class="form-control" name="search[search]" placeholder="Search Auctions" autofocus="true">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Minimum Price</td>
+            <td>Address</td>
+            <td>End Date</td>
+            <% if @user.level == 3 %>
+            <td>Created By</td>
+            <td>Actions</td>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @auctions.each do |auction| %>
+          <tr>
+            <td><%= auction.title %></td>
+            <td>$ <%= auction.minimum_price %></td>
+            <td><%= auction.address.street %> <%= auction.address.city %>, <%= auction.address.state %></td>
+            <td><%= Time.diff(auction.auction_end + 7.days, Time.now ,'%d %hh %mm %ss')[:diff]%>
+            </td>
+                <% if @user.level == 3 %>
+              <td><%= auction.user.first_name %> <%= auction.user.last_name %></td>
+              <% end %>
+            <td>
+              <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Actions (<%= auction.id %>)
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="/auctions/<%= auction.id %>">Bid</a></li>
+                    <% if @user.level == 3 %>
+                    <li><a href="/auctions/<%= auction.id %>" data-method="delete">Delete</a></li>
+                    <% end %>
+                  </ul>
+                </div>
+            </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+
