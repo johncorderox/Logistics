@@ -21,7 +21,7 @@
           </li>
           <li>
             <a href="/users/<%= @user.id %>/edit">Edit Profile</a>
-          </li> 
+          </li>
           <% end %>
         <% end %>
             <li>
@@ -75,7 +75,8 @@
       <td><%= auction.title %></td>
       <td>$ <%= auction.minimum_price %></td>
       <td><%= auction.address.street %> <%= auction.address.city %>, <%= auction.address.state %></td>
-      <td><%= Time.diff(auction.auction_end + 7.days, Time.now ,'%d %hh %mm %ss')[:diff]%></td>
+      <td><%= Time.diff(auction.auction_end + 7.days, Time.now ,'%d %hh %mm %ss')[:diff]%>
+      </td>
           <% if @user.level == 3 %>
         <td><%= auction.user.first_name %> <%= auction.user.last_name %></td>
         <% end %>
