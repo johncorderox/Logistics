@@ -22,6 +22,9 @@ class AuctionsController < ApplicationController
     @auction_history = Auction.find(params[:id]).bids.order("created_at DESC").limit(10)
     @last_bid = Auction.find(params[:id]).bids.order("created_at DESC").limit(1).select(:price).first
     @user = User.find(session[:user_id])
+    @pastauctions = Auction.where.not(status:new)
+    @my_auctions = Auction.where(user: current_user )
+    @all_auctions = Auction.all
 
     # test
     geocodio = Geocodio::Client.new('07980857e0feeaa078509a098a8078e60509d99')
