@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= image_tag("logo.svg") %>
+    <%=link_to( image_tag("logo.svg"), auctions_path) %>
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -82,8 +82,33 @@
                 <input class="form-control" type="text" name="user[phone_number]" value="<%= @user.phone_number %>">
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-6">
+                <input class="btn btn-primary" type="submit" value="UPDATE PROFILE">
+              </div>
+            </div>
+        </form>
+      </div>
+      <% if flash[:errors] %>
+        <div class="diblock mainbox col-md-4 col-sm-4">
+          <div class="col-sm">
+            <% flash[:errors].each do |e| %>
+              <div class="alert alert-danger">
+                <strong>
+                  <%= e %>
+                </strong>
+              </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>      
+      <div class="diblock col-md-8">
+          <form class="form-horizontal" role="form" action="/addresses<% if @user.level >= 1 %><% if @user.address_id != nil %>/<%= @address.id %><% end %><% end%>" method="post" >
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <% if @user.level >= 1 %>
-            <% if @user.address_id != nil %>
+            <% if @user.address_id != nil %>            
+            <input name="_method" type="hidden" value="patch" />
             <div class="form-group">
               <label class="col-md-3 control-label">Address:</label>
               <div class="col-md-6">
@@ -138,24 +163,11 @@
             <div class="form-group">
               <label class="col-md-3 control-label"></label>
               <div class="col-md-6">
-                <input class="btn btn-primary" type="submit" value="SAVE CHANGES">
+                <input class="btn btn-primary" type="submit" value="UPDATE ADDRESS">
               </div>
             </div>
         </form>
       </div>
-      <% if flash[:errors] %>
-        <div class="diblock mainbox col-md-4 col-sm-4">
-          <div class="col-sm">
-            <% flash[:errors].each do |e| %>
-              <div class="alert alert-danger">
-                <strong>
-                  <%= e %>
-                </strong>
-              </div>
-              <% end %>
-          </div>
-        </div>
-        <% end %>
       </div>
   </div>
 </div>

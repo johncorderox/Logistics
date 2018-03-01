@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= image_tag("logo.svg") %>
+      <%=link_to( image_tag("logo.svg"), root_path) %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -17,14 +17,13 @@
 </div>
 <br>
 <br>
-
 <div id="sign_up_header">
   <div class="container">    
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
         <div class="panel panel-info" >
           <div class="panel-heading">
             <div class="panel-title">Sign In</div>
-            <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+            <div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
             </div>     
             <div style="padding-top:30px" class="panel-body" >
               <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
@@ -38,13 +37,7 @@
                       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                       <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                     </div>
-                    <div class="input-group">
-                      <div class="checkbox">
-                        <label>
-                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                        </label>
-                      </div>
-                    </div>
+
                     <div style="margin-top:10px" class="form-group">
                     <!-- Button -->
                     <div class="col-sm-12 controls">
@@ -52,12 +45,9 @@
                     </div>
                         </div>  
                 </form>     
-
-
-
-                        </div>                     
-                    </div>  
-        </div>
+              </div>                     
+            </div>  
+          </div>
 <% if flash[:errors] %>
   <div class="d-inline-block mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="col-sm">
@@ -72,21 +62,19 @@
   </div>
 <% end %>
 <div id="signupbox" style="display:inline-block; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <div class="panel-title">Sign Up</div>
-        </div>  
-        <div class="panel-body" >
-         
-            <form id="signupform" class="form-horizontal" role="form" action="/users" method="post">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-              <div class="form-group">
-                <label for="user[email]" class="col-md-3 control-label">Email</label>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Sign Up</div>
+    </div>  
+    <div class="panel-body" >
+      <form id="signupform" class="form-horizontal" role="form" action="/users" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <div class="form-group">
+            <label for="user[email]" class="col-md-3 control-label">Email</label>
             <div class="col-md-9">
-                <input type="email" class="form-control" name="user[email]" placeholder="Email Address">
-            </div>
-        </div>   
+              <input type="email" class="form-control" name="user[email]" placeholder="Email Address">
+          </div>
+          </div>   
           <div class="form-group">
             <label for="user[first_name]" class="col-md-3 control-label">First Name</label>
             <div class="col-md-9">
@@ -111,24 +99,17 @@
                   <input type="password" class="form-control" name="user[password_confirmation]" placeholder=" Confirm Password">
               </div>
           </div>
-
-                <div class="form-group">
-
-                    <div class="col-md-offset-3 col-md-9">
-                        <div class="col-sm-12 controls">
-                          <input type="submit" value="SIGN UP">
-                        </div>
-                    </div>
-                </div>
-                                              
-            </form>
-          </div>
+          <div class="form-group">
+              <div class="col-md-offset-3 col-md-9">
+                  <div class="col-sm-12 controls">
+                    <input type="submit" value="SIGN UP">
+                  </div>
+              </div>
+          </div>                                 
+      </form>
     </div>
-
-               
-               
-                
-         </div> 
-    </div>
+  </div>             
+</div> 
+</div>
 </div>
 
