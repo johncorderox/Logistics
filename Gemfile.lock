@@ -58,6 +58,7 @@ GEM
     crass (1.0.3)
     debug_inspector (0.0.3)
     erubis (2.7.0)
+    excon (0.60.0)
     execjs (2.7.0)
     ffi (1.9.23)
     globalid (0.4.1)
@@ -78,6 +79,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    mailchimp-api (2.0.6)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
@@ -169,6 +173,7 @@ DEPENDENCIES
   hirb
   jbuilder (~> 2.0)
   jquery-rails
+  mailchimp-api
   rails (= 4.2.7)
   rails-footnotes (>= 4.0.0, < 5)
   sass-rails (~> 5.0)
