@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       @address = Address.new(update_address)
       User.update(@user.id, address: @address)
         if @address.save && User.update(params[:id], update_user)
-          redirect_to edit_user_path(params[:id])
+          redirect_to user_path(params[:id])
         else
           flash[:errors] = @user.errors.full_messages && @address.errors.full_messages
           redirect_to edit_user_path(params[:id])
