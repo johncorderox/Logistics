@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       @address = Address.new(update_address)
       User.update(@user.id, address: @address)
         if @address.save && User.update(params[:id], update_user)
-          redirect_to user_path(params[:id])
+          redirect_to edit_user_path(params[:id])
         else
           flash[:errors] = @user.errors.full_messages && @address.errors.full_messages
           redirect_to edit_user_path(params[:id])
@@ -53,9 +53,5 @@ class UsersController < ApplicationController
 
     def update_user
       params.require(:user).permit(:first_name, :last_name, :email, :company, :phone_number)
-    end
-
-    def update_address
-      params.require(:address).permit(:street, :city, :state, :zip_code)
     end
 end
