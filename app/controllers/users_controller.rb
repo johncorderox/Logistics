@@ -13,6 +13,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def subscribe
+    @subscribe = Subscribe.new(:email => params[:email] )
+    if @subscribe.save
+      UserMailer.signup_confirmation(@subscribe).deliver_now
+      redirect_to "/"
+    else 
+      redirect_to :back
+    end
+  end
+
   def new
   end
 

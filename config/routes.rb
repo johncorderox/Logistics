@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :addresses, only: [:create, :update]
   resources :dashboards, only: [:index]
 
+  post "users/subscribe" => "users#subscribe"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
