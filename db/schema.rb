@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301220125) do
-
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
     t.string   "city"
@@ -64,6 +62,12 @@ ActiveRecord::Schema.define(version: 20180301220125) do
   add_index "deliveries", ["address_id"], name: "index_deliveries_on_address_id"
   add_index "deliveries", ["auction_id"], name: "index_deliveries_on_auction_id"
   add_index "deliveries", ["users_id"], name: "index_deliveries_on_users_id"
+
+  create_table "subscribes", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
