@@ -1,0 +1,29 @@
+<% if @user.level == 0 %>
+<h2>Driver Dashboard</h2>
+<% elsif @user.level == 1 %>
+<h2>User Dashboard</h2>
+<% elsif @user.level == 2 %>
+<h2>Admin Dashboard</h2>
+<% end %>
+<h2>Recent Bids</h2>
+<a href="/auctions">View All Auctions</a>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Bid Date</td>
+      <td>Bid Price</td>
+      <td>Auction</td>
+      <td>Status</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bids.each do |bids| %>
+    <tr>
+      <td><%= bids.created_at%></td>
+      <td>$<%= bids.price%></td>
+      <td><a href="/auctions/<%= bids.auction.id%>"><%= bids.auction.title %></a></td>
+      <td><%= bids.auction.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :auctions, only: [:index, :new, :destroy, :create, :show]
   resources :bids, only: [:create, :destroy]
   resources :addresses, only: [:create, :update]
+  resources :dashboards, only: [:index]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

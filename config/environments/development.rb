@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.mailchimp_api_key = "2ab020394e321beb6ba34395ba17068d-us17"
+  config.mailchimp_list_id = "a2f04295b7"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
