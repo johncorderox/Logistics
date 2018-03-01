@@ -46,6 +46,7 @@
       $<%= @last_bid.price %>
       <% end %>
     </h2>
+    <!-- <h3><b>*The new bid price cannot be higher than the initial bid price.*</b></h3> -->
     <form action="/bids" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
@@ -62,5 +63,44 @@
       <% end %>
       <% else %>
       <%end %>
+    <h3><b>Past Auctions</b></h3>
+    <table class = "table">
+        <thead>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Minimum Price</th>
+          <th>Auction Ended</th>
+        </thead>
+        <tbody>
+        <% if @user.level == 0 %>
+            <% @pastauctions.each do |a| %>
+            <tr>
+              <td><%= a.title %></td>
+              <td><%= a.description %></td>
+              <td><%= a.minimum_price %></td>
+              <td><%= a.auction_end %></td>
+            </tr>
+            <% end %>
+        <% elsif @user.level == 1 %>
+            <% @my_auctions.each do |m| %>
+            <tr>
+              <td><%= m.title %></td>
+              <td><%= m.description %></td>
+              <td><%= m.minimum_price %></td>
+              <td><%= m.auction_end %></td>
+            </tr>
+            <% end %>
+        <% elsif @user.level == 2 %>
+            <% @all_auctions.each do |n| %>
+            <tr>
+                <td><%= n.title %></td>
+                <td><%= n.description %></td>
+                <td><%= n.minimum_price %></td>
+                <td><%= n.auction_end %></td>
+              </tr>
+            <% end %>
+        <% end %>
+        </tbody>
+      </table>
 </div>
 </div>
