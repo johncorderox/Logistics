@@ -20,10 +20,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.yahoo.com",
-    port: 2525,
+    port: 465 ,
     domain: "example.com",
-    authentication: "plain",
+    authentication: :plain,
     enable_starttls_auto: true,
+    tls: true,
+    openssl_verify_mode:  'none',
+    ssl: true,
     user_name: ENV["YAHOO_USERNAME"],
     password: ENV["YAHOO_PASSWORD"]
   }

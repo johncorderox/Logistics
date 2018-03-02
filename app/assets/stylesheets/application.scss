@@ -23,6 +23,16 @@
 .diblock{
   display: inline-block;
 }
+
+
+.navbar-brand {
+  position: relative;
+  width: 170px;
+  left: 15px;
+  padding: 0px 0px;
+  background-size: contain;
+}
+
 .background_1{
   background: url(background.png);
 }
