@@ -1,4 +1,4 @@
-<script src="//maps.google.com/maps/api/js?key="AIzaSyBvkzDkwN4uqroOeJitlDoGiRtHnD_7skk""></script>
+<script src="//maps.google.com/maps/api/js?key="AIzaSyBvkzDkwN4uqroOeJitlDoGiRtHnD_7skk" "></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
@@ -25,7 +25,7 @@
           </li>
           <li>
             <a href="/users/<%= @user.id %>/edit">Edit Profile</a>
-          </li> 
+          </li>
           <% end %>
         <% end %>
             <li>
@@ -38,6 +38,7 @@
 <br>
 <br>
 <br>
+
 <div id="wrapper" class="panel panel-primary">
   <div class="panel-heading"><%= @auction_find.title %></div>
   <div class="panel-body">
@@ -53,9 +54,7 @@
     <form action="/bids" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="auction_id" value="<%= @auction_find.id %>">
-        Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px">
-        <br>
-        <button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
+        Bid <input type="number" step="any" class="form-control" name="price" style="width: 150px"><br /><button type="submit" class="btn btn-warning" style="display: inline-block">Bid! </button>
     </form><br><br>
     <% if @user.level > 1 %>
       Bid History <br><br><br>
@@ -139,3 +138,4 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
 });
 
 </script>
+
