@@ -3,7 +3,6 @@
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 
-<div id="wrapper">
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -39,7 +38,8 @@
 <br>
 <br>
 <br>
-<div class="panel panel-info">
+
+<div id="wrapper" class="panel panel-primary">
   <div class="panel-heading"><%= @auction_find.title %></div>
   <div class="panel-body">
     <b>Description:</b>  <%= @auction_find.description %><br><br><br><br>
@@ -138,3 +138,4 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
 });
 
 </script>
+
