@@ -46,8 +46,9 @@
     <div class="col align-self-center">
 <div class="panel panel-primary diblock background_1">
   <div class="panel-heading "><%= @auction_find.title %></div>
-  <div class="panel-body">
-    <b>Description:</b>  <%= @auction_find.description %><br><br><br><br>
+  <div class="panel-body"><br>
+    <b>Description:</b>  <%= @auction_find.description %><br><br>
+    <b>Temperature: </b> Dallas, TX: <b>71 F</b><br>
     <b>Number of Bids:</b> <%= @auction_find.bids.count %>
     <h2>Current Price
       <% if @auction_find.bids.empty? %>
@@ -131,7 +132,7 @@ var directionsService = new google.maps.DirectionsService();
 
 function calcRoute() {
   var origin      = new google.maps.LatLng(<%= @results.latitude %>, <%= @results.longitude %>);
-  var destination = new google.maps.LatLng(42.850033, -85.6500523);
+  var destination = new google.maps.LatLng(32.777916, -96.803326);
   var request = {
       origin:      origin,
       destination: destination,
@@ -152,4 +153,3 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
 });
 
 </script>
-
