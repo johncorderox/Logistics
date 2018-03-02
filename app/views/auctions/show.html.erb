@@ -7,7 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%=link_to( image_tag("logo.svg"), auctions_path) %>
+      <div class ="navbar-brand">
+        <%=link_to( image_tag("logo.svg"), auctions_path) %>
+      </div>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -71,7 +73,7 @@
           <th>Auction Ended</th>
         </thead>
         <tbody>
-        <% if @user.level == 0 %>
+        <% if @user.level == 0 %> 
             <% @pastauctions.each do |a| %>
             <tr>
               <td><%= a.title %></td>
