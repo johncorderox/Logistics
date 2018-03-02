@@ -14,7 +14,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="/auctions">Home</a>
+          <a href="/auctions" data-turbolinks="false">Home</a>
         </li>
         <% if @user.level >= 1 %>
           <% if @user.address_id != nil %>
@@ -91,7 +91,7 @@
                   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Actions (<%= auction.id %>)
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li><a href="/auctions/<%= auction.id %>">Bid</a></li>
+                    <li><a href="/auctions/<%= auction.id %>" data-turbolinks="false">Bid</a></li>
                     <% if @user.level == 3 %>
                     <li><a href="/auctions/<%= auction.id %>" data-method="delete">Delete</a></li>
                     <% end %>

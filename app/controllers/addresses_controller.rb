@@ -4,10 +4,10 @@ class AddressesController < ApplicationController
     @address = Address.new(update_address)
     User.update(@user.id, address: @address)
     if @address.save
-      redirect_to edit_user_path(session[:user_id])
+      redirect_to :back
     else
       flash[:errors] = @address.errors.full_messages 
-      redirect_to edit_user_path(session[:user_id])
+      redirect_to :back
     end
   end
 
@@ -15,10 +15,10 @@ class AddressesController < ApplicationController
     @user = User.find(session[:user_id])
     @address = Address.find(@user.address_id)
       if @address.update(update_address)
-        redirect_to edit_user_path(params[:id])
+        redirect_to :back
       else
         flash[:errors] = @address.errors.full_messages   
-        redirect_to edit_user_path(params[:id])        
+        redirect_to :back       
       end
   end
   private
