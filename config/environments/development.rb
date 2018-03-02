@@ -19,17 +19,14 @@ Rails.application.configure do
   # Change mail delivery to either :smtp, :sendmail, :file, :test
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.yahoo.com",
-    port: 465 ,
-    domain: "example.com",
-    authentication: :plain,
-    enable_starttls_auto: true,
-    tls: true,
-    openssl_verify_mode:  'none',
-    ssl: true,
-    user_name: ENV["YAHOO_USERNAME"],
-    password: ENV["YAHOO_PASSWORD"]
-  }
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            ENV["GMAIL_USERNAME"],
+    password:             ENV["GMAIL_PASSWORD"],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  } 
 
   # Specify what domain to use for mailer URLs
   # config.action_mailer.default_url_options =  {host: "localhost:3000"}
