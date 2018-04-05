@@ -1,28 +1,26 @@
-== README
+= Logistics {<img src="https://badges.depfu.com/badges/dc9daf561b1737cc018664455dc939e3/overview.svg" alt="Dependency Status" />}[https://beta.gemnasium.com/projects/github.com/johncorderox/Logistics]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Logistics is a ruby on rails web applicaiton that allows independent truck drivers to bid on different contracts that companies post. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=== System Dependencies 
+* Rails 4.2
+* time_diff
+* gmaps4rails
+* geocodio
+* bcrypt
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== To Install 
+
+<code> 
+bundle install
+</code>
+<code> 
+rake db:migrate
+</code>
+<code> 
+rails server 
+</code>
+
+
+
