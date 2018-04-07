@@ -1,6 +1,6 @@
 = Logistics {<img src="https://badges.depfu.com/badges/dc9daf561b1737cc018664455dc939e3/overview.svg" alt="Dependency Status" />}[https://beta.gemnasium.com/projects/github.com/johncorderox/Logistics]
 
-Logistics is a ruby on rails web applicaiton that allows independent truck drivers to bid on different contracts that companies post. 
+Logistics is a ruby on rails web application that allows independent truck drivers to bid on different contracts that companies post. 
 
 === System Dependencies 
 * Rails 4.2
