@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/amro/gibbon.git
+  remote: https://github.com/amro/gibbon.git
   revision: ad1497c1251b25f77c4015416dd648afa96d01e9
   specs:
     gibbon (3.2.0)
@@ -169,7 +169,7 @@ GEM
     turbolinks (5.1.0)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
