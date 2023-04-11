@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/amro/gibbon.git
+  remote: https://github.com/amro/gibbon.git
   revision: ad1497c1251b25f77c4015416dd648afa96d01e9
   specs:
     gibbon (3.2.0)
@@ -96,12 +96,14 @@ GEM
       excon (>= 0.16.0)
       json (>= 1.7.7)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.8.1)
     minitest (5.11.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    nokogiri (1.8.2)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.14.3)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    racc (1.6.2)
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
