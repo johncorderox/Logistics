@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/amro/gibbon.git
+  remote: https://github.com/amro/gibbon.git
   revision: ad1497c1251b25f77c4015416dd648afa96d01e9
   specs:
     gibbon (3.2.0)
@@ -54,7 +54,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
-    byebug (10.0.0)
+    byebug (12.0.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
