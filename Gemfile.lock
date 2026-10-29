@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/amro/gibbon.git
+  remote: https://github.com/amro/gibbon.git
   revision: ad1497c1251b25f77c4015416dd648afa96d01e9
   specs:
     gibbon (3.2.0)
@@ -63,7 +63,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    crass (1.0.3)
+    crass (1.0.8)
     debug_inspector (0.0.3)
     erubis (2.7.0)
     excon (0.60.0)
